@@ -1,0 +1,7 @@
+.list {
+    font-weight: bold;
+    display: flex;
+    font-size: 0.856rem;
+    gap: 1.25rem;
+    align-items: center;    
+}
