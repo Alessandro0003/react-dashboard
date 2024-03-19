@@ -17,7 +17,7 @@ type Anchor = 'left'
 export default function AnchorTemporaryDrawer() {
   const [state, setState] = React.useState({
     left: false, 
-  });
+  })
 
   const toggleDrawer =
     (anchor: Anchor, open: boolean) =>
@@ -27,11 +27,11 @@ export default function AnchorTemporaryDrawer() {
         ((event as React.KeyboardEvent).key === 'Tab' ||
           (event as React.KeyboardEvent).key === 'Shift')
       ) {
-        return;
+        return
       }
 
       setState({ ...state, [anchor]: open })
-    };
+    }
 
   const list = (anchor: Anchor) => (
     <Box
@@ -47,7 +47,7 @@ export default function AnchorTemporaryDrawer() {
                 <div className={styles.list}>
                     {index % 2 === 0 ? <DashboardIcon /> :  <GroupIcon />}
                 
-                    {index % 2 === 0 ? <p>Dashboard</p> : <p>Usuários</p>}
+                    {index % 2 === 0 ? <a href='/dashboard'>Dashboard</a> : <p>Usuários</p>}
                 </div>
               </ListItemIcon>
               <ListItemText primary={text}>
@@ -58,7 +58,7 @@ export default function AnchorTemporaryDrawer() {
       </List>
       <Divider />
     </Box>
-  );
+  )
 
   return (
     <div>
@@ -75,5 +75,5 @@ export default function AnchorTemporaryDrawer() {
         </React.Fragment>
       ))}
     </div>
-  );
+  )
 }
