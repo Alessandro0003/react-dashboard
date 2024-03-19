@@ -1,143 +1,96 @@
-import React from 'react';
-import ReactApexChart from 'react-apexcharts';
+import { Component } from 'react'
+import ReactApexChart from 'react-apexcharts'
+
+interface FrameworkData {
+  id: string
+  timestamp: string
+  angular: number
+  react: number
+  vue: number
+}
 
 interface ApexChartProps {}
 
 interface ApexChartState {
-  series: {
-    name: string;
-    data: number[];
-  }[];
+  series: { name: string, data: number[] }[]
   options: {
     chart: {
-      height: number;
-      type: string;
-      zoom: {
-        enabled: boolean;
-      };
-    };
-    dataLabels: {
-      enabled: boolean;
-    };
-    stroke: {
-      width: number[];
-      curve: string;
-      dashArray: number[];
-    };
-    title: {
-      text: string;
-      align: string;
-    };
-    legend: {
-      tooltipHoverFormatter: Function;
-    };
-    markers: {
-      size: number;
-      hover: {
-        sizeOffset: number;
-      };
-    };
-    xaxis: {
-      categories: string[];
-    };
-    tooltip: {
-      y: {
-        title: {
-          formatter: Function;
-        };
-      }[];
-    };
-    grid: {
-      borderColor: string;
-    };
-  };
+      height: number
+      type: string
+      zoom: { enabled: boolean }
+    }
+    dataLabels: { enabled: boolean }
+    stroke: { width: number[], curve: string,  dashArray: number[] }
+    title: { text: string,  align: string }
+    legend: { tooltipHoverFormatter: Function }
+    markers: { size: number,  hover: { sizeOffset: number } }
+    xaxis: { categories: string[] }
+    tooltip: { y: { title: { formatter: Function } }[] }
+    grid: { borderColor: string }
+  }
 }
 
-export class ApexChart extends React.Component<ApexChartProps, ApexChartState> {
+export class ApexChart extends Component<ApexChartProps, ApexChartState> {
   constructor(props: ApexChartProps) {
-    super(props);
-
+    super(props)
     this.state = {
-      series: [
-        {
-          name: "Session Duration",
-          data: [45, 52, 38, 24, 33, 26, 21, 20, 6, 8, 15, 10]
-        },
-        {
-          name: "Page Views",
-          data: [35, 41, 62, 42, 13, 18, 29, 37, 36, 51, 32, 35]
-        },
-        {
-          name: 'Total Visits',
-          data: [87, 57, 74, 99, 75, 38, 62, 47, 82, 56, 45, 47]
-        }
-      ],
+      series: [],
       options: {
         chart: {
           height: 350,
           type: 'line',
-          zoom: {
-            enabled: false
+          zoom: { enabled: false },
+        },
+        dataLabels: { enabled: false },
+        stroke: { width: [5, 7, 5], curve: 'straight', dashArray: [0, 8, 5] },
+        title: { text: 'Historico Anual', align: 'left' },
+        legend: {
+          tooltipHoverFormatter: function (val: any, opts: any) {
+            return val + ' - <strong>' + opts.w.globals.series[opts.seriesIndex][opts.dataPointIndex] + '</strong>'
           },
         },
-        dataLabels: {
-          enabled: false
-        },
-        stroke: {
-          width: [5, 7, 5],
-          curve: 'straight',
-          dashArray: [0, 8, 5]
-        },
-        title: {
-          text: 'Historico Anual',
-          align: 'left'
-        },
-        legend: {
-          tooltipHoverFormatter: function(val: any, opts: any) {
-            return val + ' - <strong>' + opts.w.globals.series[opts.seriesIndex][opts.dataPointIndex] + '</strong>'
-          }
-        },
-        markers: {
-          size: 0,
-          hover: {
-            sizeOffset: 6
-          }
-        },
+        markers: { size: 0, hover: { sizeOffset: 6 } },
         xaxis: {
-          categories: ['01 Jan', '02 Jan', '03 Jan', '04 Jan', '05 Jan', '06 Jan', '07 Jan', '08 Jan', '09 Jan',
-            '10 Jan', '11 Jan', '12 Jan'
+          categories: [
+            '01 Jan', '02 Jan', '03 Jan', '04 Jan', '05 Jan', '06 Jan',
+            '07 Jan', '08 Jan', '09 Jan', '10 Jan', '11 Jan', '12 Jan'
           ],
         },
         tooltip: {
           y: [
-            {
-              title: {
-                formatter: function (val: any) {
-                  return val + " (mins)"
-                }
-              }
-            },
-            {
-              title: {
-                formatter: function (val: any) {
-                  return val + " per session"
-                }
-              }
-            },
-            {
-              title: {
-                formatter: function (val: any) {
-                  return val;
-                }
-              }
-            }
-          ]
+            { title: { formatter: function (val: any) { return val + ' (mins)' } } },
+            { title: { formatter: function (val: any) { return val + ' per session' } } },
+            { title: { formatter: function (val: any) { return val } } },
+          ],
         },
-        grid: {
-          borderColor: '#f1f1f1',
-        }
-      }
-    };
+        grid: { borderColor: '#f1f1f1' },
+      },
+    }
+  }
+
+  async componentDidMount() {
+    try {
+      const response = await fetch('http://localhost:3001/frameworks') // Assuming '/api/data' is the endpoint for fake API
+      const data: FrameworkData[] = await response.json()
+      const categories = data.map(item => item.timestamp)
+      const series = [
+        { name: 'Angular', data: data.map(item => item.angular) },
+        { name: 'React', data: data.map(item => item.react) },
+        { name: 'Vue', data: data.map(item => item.vue) },
+      ]
+
+      this.setState({
+        series: series,
+        options: {
+          ...this.state.options,
+          xaxis: {
+            categories: categories,
+          },
+        },
+      })
+    } catch (error) {
+      console.error('Error fetching data:', error)
+    }
   }
 
   render() {
@@ -148,6 +101,6 @@ export class ApexChart extends React.Component<ApexChartProps, ApexChartState> {
         </div>
         <div id="html-dist"></div>
       </div>
-    );
+    )
   }
 }
