@@ -1,6 +1,13 @@
 import styles from './header.module.css'
 import AnchorTemporaryDrawer from './ui/drawer'
-import ProfileIcon from './ui/avatar'
+import Avatar from '@mui/material/Avatar'
+import Stack from '@mui/material/Stack'
+
+function stringAvatar(name: string) {
+    return {
+      children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
+    }
+}
 
 export function Header() {
     return (
@@ -10,8 +17,11 @@ export function Header() {
         
                 <span>AT Software Solutions</span>
             </div>
+
             <div className={styles.profileIcon}>
-                <ProfileIcon />
+                <Stack direction="row" spacing={2}>
+                    <Avatar {...stringAvatar('A T')} />
+                </Stack>
             </div>
         </main>
     )
