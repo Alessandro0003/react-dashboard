@@ -10,7 +10,6 @@ export function Metrics() {
             <div className={styles.card}>
                 
                 <div className={styles.title}>
-                    
                     <h2>Frameworks Javascript</h2>
                     <p>2023</p>
                 </div>

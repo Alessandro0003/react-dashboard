@@ -1,11 +1,9 @@
 a {
     text-decoration: none;
-    color: var(--gray-400);
-    font-weight: bold;
+    color: var(--gray-800);
 }
 .list {
-    color: var(--gray-400);
-    font-weight: bold;
+    color: var(--gray-800);
     display: flex;
     font-size: 0.856rem;
     gap: 1.25rem;

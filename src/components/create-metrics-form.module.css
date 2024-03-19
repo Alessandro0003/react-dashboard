@@ -1,0 +1,40 @@
+h2 {
+    font-weight: 500;
+    margin-top: -5px;
+}
+
+.subTitleForm  {
+    margin-top: 1.25rem;
+    color: var(--gray-600);
+}
+
+.formColum {
+    margin-top: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.labelReact {
+    margin-right: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.buttonSave {
+    margin-top: 2.25rem;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+
+.titleForm {
+    padding: 2px;
+}
+
+.dateForm {
+    width: 100vh;
+}

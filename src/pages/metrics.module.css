@@ -10,7 +10,6 @@ p {
     padding: 1.25rem;
 }
 .graphic {
-    color: var(--gray-900);
     padding: 3.25rem;
 }
 
@@ -19,7 +18,7 @@ p {
     margin-left: 0.875rem;
     border-radius: 0.375rem;
     margin-top: 2.25rem;
-    background-color: var(--gray-300);
+    /* background-color: var(--gray-300); */
 }
 .addMetrics {
     color: var(--gray-800);
