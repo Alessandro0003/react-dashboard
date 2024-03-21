@@ -3,6 +3,8 @@ import Box from '@mui/material/Box'
 import Modal from '@mui/material/Modal'
 import AddIcon from '@mui/icons-material/Add'
 import { CreateMetricsForm } from './create-metrics-form'
+import { X } from 'lucide-react'
+import styles from './moda.module.css'
 
 const style = {
   position: 'absolute' as const,
@@ -28,6 +30,7 @@ export function ModalCreateMetrics() {
     setOpen(false)
   }
 
+
   return (
     <div>
       <div title="Adicione uma metrica">
@@ -40,7 +43,12 @@ export function ModalCreateMetrics() {
         aria-describedby="parent-modal-description"
       >
         <Box sx={{ ...style, width: 800 }}>
-          <CreateMetricsForm />
+          
+        <div className={styles.close}>
+          <X onClick={handleClose} className={styles.iconClose}/>
+        </div>
+        
+          <CreateMetricsForm/>
         </Box>
       </Modal>
     </div>

@@ -94,7 +94,9 @@ export class ApexChart extends Component<ApexChartProps, ApexChartState> {
   }
 
   async componentDidMount() {
+    
     try {
+    
       const response = await fetch('http://localhost:3001/frameworks') // Assuming '/localhost:3001/frameworks' is the endpoint for fake API
 
       const data: FrameworkData[] = await response.json()

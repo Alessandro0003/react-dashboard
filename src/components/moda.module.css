@@ -1,0 +1,15 @@
+.close {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.iconClose{
+    cursor: pointer;
+    width: 1.2rem;
+    color: var(--gray-400);
+}
+
+.iconClose:hover {
+    color: rgb(216, 97, 97);
+}

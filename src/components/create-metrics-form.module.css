@@ -2,6 +2,10 @@ h2 {
     font-weight: 500;
     margin-top: -5px;
 }
+label {
+  font-size: 0.895rem;
+  color: var(--gray-600);
+}
 
 .subTitleForm  {
     margin-top: 1.25rem;
@@ -9,17 +13,21 @@ h2 {
 }
 
 .formColum {
-    margin-top: 2.5rem;
+    margin-top: 1.5rem;
     display: flex;
     align-items: center;
-    gap: 1.2rem;
+    gap: 5rem;
 }
 
-.labelReact {
+
+.inputFramework {
+    width: 100px;
+}
+
+.labelFrameworks {
     margin-right: 1.25rem;
     display: flex;
     flex-direction: column;
-    
 }
 
 .buttonSave {
@@ -30,11 +38,97 @@ h2 {
     align-items: flex-end;
 }
 
-
 .titleForm {
     padding: 2px;
 }
 
 .dateForm {
-    width: 100vh;
+    margin-top: 1.25rem;
 }
+
+/* Estilizar o hover e focus */
+input[type="number"] {
+  padding: 8px 12px;
+  border: 1px solid var(--gray-300);
+  border-radius: 4px;
+  font-size: 16px;
+  width: 190px;
+}
+
+/* Estilizar o hover e focus */
+input[type="number"]:hover,
+input[type="number"]:focus {
+  border-color: var(--gray-300);
+  outline: none;
+}
+
+/* .dateInputContainer{
+  border: 1px solid var(--gray-300);
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  display: flex;
+  width: 190px;
+} */
+
+.saveButton {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border: 2px solid var(--blue); /* Cor da borda */
+    color: white;
+    background-color: var(--blue); /* Cor de fundo */
+    border-radius: 5px; /* Cantos arredondados */
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  }
+  
+  .saveButton:hover {
+    background-color: var(--blue-300); /* Cor de fundo mais escura */
+    border-color: var(--blue-300); /* Cor da borda mais escura */
+  }
+  
+
+  .saveButton:active {
+    background-color: var(--blue-500); 
+    border-color: var(--blue-500); 
+  }
+
+  .loaderIcon {
+    width: 15px;
+    height: 15px;
+    animation: spin 2s linear infinite;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Estilizando o próprio input */
+  .dateInput {
+    color: var(--gray-600);
+    font-weight: normal;
+    font-family: 'inter' ;
+    width: calc(99% - -10px); /* Largura do input menos a largura do ícone de calendário e o espaçamento */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box; /* Garante que o padding não aumente a largura total */
+  }
+  
+  
+  /* Estilo opcional para foco no input */
+  .dateInput:focus {
+    outline: none; /* Remove a borda de foco padrão */
+  }
+
+  .error {
+    font-size: 15px;
+    color: red;
+  }
+

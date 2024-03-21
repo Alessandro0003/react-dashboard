@@ -1,7 +1,8 @@
 import { ApexChart }  from '../components/dashbord'
 import { Header } from '../components/header'
 import styles from './metrics.module.css'
-import { ModalCreateMetrics } from '../components/modalCreate'
+import { ModalCreateMetrics } from '../components/modal'
+
 
 export function Metrics() {
     return (
