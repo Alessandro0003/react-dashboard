@@ -13,13 +13,15 @@ export function Header() {
     return (
         <main>
             <div className={styles.header}>
-                <AnchorTemporaryDrawer />
+                <div className={styles.menuIcon}>
+                    <AnchorTemporaryDrawer/>
+                </div>
         
-                <span>AT Software Solutions</span>
+                <span className={styles.title}>AT Software Solutions</span>
             </div>
 
             <div className={styles.profileIcon}>
-                <Stack direction="row" spacing={2}>
+                <Stack direction="row" spacing={2} >
                     <Avatar {...stringAvatar('A T')} />
                 </Stack>
             </div>

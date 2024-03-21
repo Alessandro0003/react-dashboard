@@ -40,17 +40,17 @@ export default function AnchorTemporaryDrawer() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {['', ''].map((text, index) => (
-          <ListItem key={text} disablePadding>
+        {[0, 1].map((index) => (
+          <ListItem key={index} disablePadding>
             <ListItemButton>
               <ListItemIcon>
                 <div className={styles.list}>
                     {index % 2 === 0 ? <DashboardIcon /> :  <GroupIcon />}
                 
-                    {index % 2 === 0 ? <a href='/dashboard'>Dashboard</a> : <p>Usuários</p>}
+                    {index % 2 === 0 ? <a href='/dashboard'>Dashboard</a> : <p className={styles.pColor}>Usuários</p>}
                 </div>
               </ListItemIcon>
-              <ListItemText primary={text}>
+              <ListItemText primary={''}>
               </ListItemText>
             </ListItemButton>
           </ListItem>
