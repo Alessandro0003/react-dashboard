@@ -16,10 +16,10 @@
   - npm install
 
 
-> ## 🚀 Starting projects 
+> # 🚀 Starting Projects 
 
 > ### 🚀 Starting Server Json 
   - npm run server | running in:  http://localhost:3001
 
-> ### 🚀 Starting server project 
+> ### 🚀 Starting Server Project 
   - npm run dev | running in: http://localhost:5173
