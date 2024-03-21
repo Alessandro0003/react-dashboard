@@ -1,4 +1,4 @@
-> # Project Dashboard Metrics 
+> # Project Dashboard Metrics 📉
 
 > ## ⚙ Tolls
 
@@ -12,10 +12,14 @@
 - Zod
 
 
-> ## Starting projects 🚀
+> ## ✔ Installation Dependency ✔
+  => npm install
 
-> ### Starting Server Json 🚀
-  -> npm run server
 
-> ### Starting server project 🚀
-  -> npm run dev
+> ## 🚀 Starting projects 
+
+> ### 🚀 Starting Server Json 
+  => npm run server | [http](http://localhost:3001)
+
+> ### 🚀 Starting server project 
+  => npm run dev | [http](http://localhost:5173)
