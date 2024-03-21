@@ -13,13 +13,13 @@
 
 
 > ## ✔ Installation Dependency ✔
-  => npm install
+  - npm install
 
 
 > ## 🚀 Starting projects 
 
 > ### 🚀 Starting Server Json 
-  => npm run server | [http](http://localhost:3001)
+  - npm run server | running in:  http://localhost:3001
 
 > ### 🚀 Starting server project 
-  => npm run dev | [http](http://localhost:5173)
+  - npm run dev | running in: http://localhost:5173
